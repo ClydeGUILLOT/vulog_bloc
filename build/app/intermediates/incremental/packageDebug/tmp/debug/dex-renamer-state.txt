@@ -1,0 +1,4 @@
+#Thu Nov 04 20:45:58 CET 2021
+base.0=/Users/clyde/Documents/Vulog/vulog_bloc/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
