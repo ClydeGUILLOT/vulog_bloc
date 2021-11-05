@@ -55,18 +55,18 @@ Widget loginForm(BuildContext context) {
                 final client = ApiRequestUser(
                     Dio(BaseOptions(contentType: "application/json")),
                     baseUrl: 'https://reqres.in/api');
-                print("TRY");
                 try {
                   Future _future = client.login(post);
                   _future.then((value) {
-//                    Provider.of<DATA>(context, listen: false).setToken = value.token.toString();
-                    _future = client.getUserData("12");
-                    _future.then((value) {
-//                      Provider.of<DATA>(context, listen: false).userData = value.data;
-                    });
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                          content: Text('Done! Token: ' + value.token.toString())),
+                        (value.token.toString() == "") ?
+                        const SnackBar(
+                            backgroundColor: Colors.redAccent,
+                            content: Text('Email or Password incorrect')
+                        ) : SnackBar(
+                            backgroundColor: Colors.lightGreen,
+                            content: Text('Done! Token: ' + value.token.toString())
+                        )
                     );
                   });
                 } catch(err) {
